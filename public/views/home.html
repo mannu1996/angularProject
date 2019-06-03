@@ -1,0 +1,47 @@
+<div class="jumbotron text-center">
+	<h1>Developers CURD</h1>
+
+	<form  class="novalidate">
+		Name of the candidate:
+	  <br><input type= "text" name= "candidateName" ng-model="candidate.name"><br><br>
+	   city of candidate:
+	   <br>
+	   <input type="text" name= "candidateCity" ng-model="candidate.city"><br><br>
+	   <input type = "button" ng-click= "!methodCall ? submitData(candidate) : updateData(candidate);"  ng-value= "click"  >
+	   <input type = "button" ng-click= "getData()"  value= "candidate list" ng-show="!listCall">
+	</form>
+	<br>
+	<div class= "card" ng-repeat= "x in list">
+		<div class= "card-header" ><span style= "color :red">{{$index+1}}.candidate information</span>
+		<div class= "card-body">
+				<div> name : {{x.name}}</div>
+				<div> city : {{x.city}}</div>
+				<div>
+					<input type= "button" value= "Edit" ng-click= "editData(x._id)" ng-show="!methodCall">
+					<button type= "button"  data-toggle="modal" data-target="#myModal" ng-click= "deleteConfirmation(x._id)">Delete</button>
+					
+				</div>
+				 
+	</div>
+	</div>
+	</div>
+<!--confirmation Modal-->
+	<div class="modal" id="myModal" role= "dialog" aria-hidden="true" >
+			<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">delete confirmation</h4>
+				</div>
+				<div class="modal-body">
+				<p>Do you want to delete permanently.</p>
+				</div>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-danger" ng-click="deleteData(deleteId)" style="border: 1px"  data-dismiss="modal">sure!</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">no!</button>
+				</div>
+			</div>
+			</div>
+		</div>
+
+</div>
