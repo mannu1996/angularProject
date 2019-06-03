@@ -83,8 +83,7 @@ function homeController($http , homeService) {
             if(success)	{
                 console.log("data updated successfully",success);
                 getData();
-                // vm.candidate.name = null;
-                // vm.candidate.city = null;
+                vm.candidate = {};
                 vm.methodCall = false;
                 vm.listCall = true;
                 vm.methodClick = "submit";
